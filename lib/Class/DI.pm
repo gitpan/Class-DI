@@ -3,7 +3,7 @@ use 5.008008;
 use strict;
 use warnings;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 use Class::DI::Definition;
 use Class::DI::Resource::YAML;
 use Class::DI::Factory;
