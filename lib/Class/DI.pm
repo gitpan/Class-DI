@@ -3,7 +3,7 @@ use 5.008008;
 use strict;
 use warnings;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 use Class::DI::Definition;
 use Class::DI::Resource::YAML;
 use Class::DI::Factory;
@@ -47,32 +47,32 @@ Class::DI - Perl dependency injection container
 =head1 SYNOPSIS
 configuration by yaml 
 
-injections:
- - name: hoge
-   class_name: Hoge
-   injection_type: setter
-   instance_type: prototype
-   properties:
-     name: hoge
- - name: fuga
-   class_name: Fuga
-   injection_type: constructer
-   instance_type: singleton
-   properties:
-     name: fuga
- - name: hogehoge
-   class_name: HogeHoge
-   injection_type: constructer
-   instance_type: singleton
-   properties:
-     hogehoge: 
-       name: fugafuga
-       class_name: FugaFuga
-       injection_type: constructer
-       instance_type: singleton
-       properties:
+  injections:
+   - name: hoge
+     class_name: Hoge
+     injection_type: setter
+     instance_type: prototype
+     properties:
+       name: hoge
+   - name: fuga
+     class_name: Fuga
+     injection_type: constructer
+     instance_type: singleton
+     properties:
+       name: fuga
+   - name: hogehoge
+     class_name: HogeHoge
+     injection_type: constructer
+     instance_type: singleton
+     properties:
+       hogehoge: 
          name: fugafuga
-
+         class_name: FugaFuga
+         injection_type: constructer
+         instance_type: singleton
+         properties:
+           name: fugafuga
+  
 
   my $di = Class::DI->yaml_container($yaml_filepath);
   # set from set_name method
